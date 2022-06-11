@@ -28,7 +28,7 @@ public class MySQLUserRepository implements UserRepository {
     }
 
     @Override
-    public UserDAO createUser(String username, String passwordHash, String email, String phoneNumber, String salt) {
+    public UserDAO createUser(String username, String passwordHash, String email, String salt) {
         return txTemplate.execute(status -> {
             KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -38,14 +38,13 @@ public class MySQLUserRepository implements UserRepository {
                 ps.setString(1, username);
                 ps.setString(2, passwordHash);
                 ps.setString(3, email);
-                ps.setString(4, phoneNumber);
-                ps.setString(5, salt);
+                ps.setString(4, salt);
 
                 return ps;
             }, keyHolder);
 
             int id = Objects.requireNonNull(keyHolder.getKey()).intValue();
-            return new UserDAO(id, username, passwordHash, email, phoneNumber, null, salt, null);
+            return new UserDAO(id, username, passwordHash, email, null, null, salt, null);
         });
     }
 
@@ -98,7 +97,7 @@ public class MySQLUserRepository implements UserRepository {
     }
 
     static class Queries {
-        public static final String INSERT_USER = "INSERT INTO users (username, password_Hash, email, phone_Number, salt) VALUES (?, ?, ?, ?, ?)";
+        public static final String INSERT_USER = "INSERT INTO users (username, password_Hash, email, salt) VALUES (?, ?, ?, ?)";
 
         public static final String LIST_USERS = "SELECT * FROM users LIMIT ?, ?";
 

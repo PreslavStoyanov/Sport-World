@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.sportworld.core.UserService;
-import com.example.sportworld.web.api.models.LoginUser;
+import com.example.sportworld.web.api.models.UserLogin;
 
 import java.util.Date;
 import java.util.List;
@@ -30,18 +30,19 @@ public class AuthorizationController {
     @PostMapping(value = "/register")
     public User createUser(@RequestBody UserInput user) {
         return userService.createUser(
-                user.username, user.password, user.email, user.phoneNumber);
+                user.username, user.password, user.email);
     }
 
     @PostMapping("/login")
-    public LoginUser login(@RequestBody UserInput user) {
-       /* try {*/
-            userService.authorizeUser(user.username, user.password);
-        /*} catch (InvalidUserParameterException e) {
+    public UserLogin login(@RequestBody UserInput user) {
+        int userID = userService.getUserByUsername(user.username).id;
+        try {
+            userService.authorizeUser(userID, user.password);
+        } catch (InvalidUserParameterException e) {
             throw new IllegalArgumentException();
-        }*/
+        }
         String token = getJWTToken(user.username);
-        return new LoginUser(user.username, token);
+        return new UserLogin(String.valueOf(userID), token);
     }
 
     private String getJWTToken(String username) {

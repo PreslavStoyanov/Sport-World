@@ -4,14 +4,10 @@ public class UserInput {
     public final String username;
     public final String password;
     public final String email;
-    public final String phoneNumber;
 
-
-    public UserInput(String username, String password, String email, String phoneNumber) {
+    public UserInput(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.phoneNumber = phoneNumber;
     }
-
 }

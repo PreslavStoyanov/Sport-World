@@ -15,29 +15,30 @@ import java.util.stream.Collectors;
 
 public class UserService {
     private final UserRepository userRepository;
+    private final String paper = "fc3a3c20-a28d-4454-90dd-bf054315df22";
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public void authorizeUser(String username, String password) {
+    public void authorizeUser(int userID, String password) {
         User user;
         try {
-            user = Mappers.fromUserDAO(userRepository.getUserByUsername(username));
+            user = Mappers.fromUserDAO(userRepository.getUserByID(userID));
         } catch (UserNotFoundException e) {
             throw new UserNotFoundException();
         }
-        String hash = sha256(user.salt + password);
+        String hash = sha256(user.salt + password + paper);
         if (!hash.equals(user.passwordHash))
             throw new InvalidUserParameterException();
     }
 
-    public User createUser(String username, String password, String email, String phoneNumber) {
+    public User createUser(String username, String password, String email) {
         String salt = generateSalt();
 
-        String passwordHash = sha256(salt + password);
+        String passwordHash = sha256(salt + password + paper);
 
-        return Mappers.fromUserDAO(userRepository.createUser(username, passwordHash, email, phoneNumber, salt));
+        return Mappers.fromUserDAO(userRepository.createUser(username, passwordHash, email, salt));
     }
 
     private String generateSalt() {

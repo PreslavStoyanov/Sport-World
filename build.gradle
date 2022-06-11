@@ -16,6 +16,7 @@ dependencies {
 	/*implementation 'org.springframework.boot:spring-boot-starter-parent:2.7.0'
 	implementation 'org.springframework.security:spring-security-jwt:1.1.1.RELEASE'
 	implementation 'org.springframework.boot:spring-boot-starter'*/
+	implementation 'com.google.code.gson:gson:2.9.0'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

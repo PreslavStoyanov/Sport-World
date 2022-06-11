@@ -1,11 +1,13 @@
 package com.example.sportworld.web.api;
 
 import com.example.sportworld.core.UserService;
+import com.google.gson.Gson;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.sportworld.core.models.User;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -14,28 +16,30 @@ import java.util.NoSuchElementException;
 @RequestMapping(value = "/users")
 public class UsersController {
     private UserService userService;
+    Gson gson = new Gson();
 
     public UsersController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping(value = "id/{id}")
-    public ResponseEntity<User> getUserByID(@PathVariable Integer id) {
-        try {
-            User user = userService.getUserByID(id);
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+    @GetMapping(value = "{id}")
+    public ResponseEntity<User> getUserByID(@PathVariable Integer id, @RequestHeader ("Authorization") String token) {
 
-    @GetMapping(value = "username/{username}")
-    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
-        try {
-            User user = userService.getUserByUsername(username);
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        String[] chunks = token.split("\\.");
+        Base64.Decoder decoder = Base64.getUrlDecoder();
+        String payload = new String(decoder.decode(chunks[1]));
+
+        User gUser = gson.fromJson(payload, User.class);
+
+        if (gUser.id != id) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        } else {
+            try {
+                User user = userService.getUserByID(id);
+                return new ResponseEntity<>(user, HttpStatus.OK);
+            } catch (NoSuchElementException e) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
         }
     }
 
