@@ -4,10 +4,10 @@ import com.example.sportworld.repositories.UserRepository;
 import com.example.sportworld.repositories.exceptions.UserNotFoundException;
 import com.example.sportworld.repositories.models.UserDAO;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
-import org.springframework.transaction.support.TransactionTemplate;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,13 +16,13 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Objects;
 
-import static com.example.sportworld.repositories.mysql.MySQLUserRepository.Queries.*;
+import static com.example.sportworld.repositories.mysql.SQLUserRepository.Queries.*;
 
-public class MySQLUserRepository implements UserRepository {
+public class SQLUserRepository implements UserRepository {
     private final TransactionTemplate txTemplate;
     private final JdbcTemplate jdbc;
 
-    public MySQLUserRepository(TransactionTemplate txTemplate, JdbcTemplate jdbc) {
+    public SQLUserRepository(TransactionTemplate txTemplate, JdbcTemplate jdbc) {
         this.txTemplate = txTemplate;
         this.jdbc = jdbc;
     }

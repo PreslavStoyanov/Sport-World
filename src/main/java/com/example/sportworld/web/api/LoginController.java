@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.sportworld.core.UserService;
-import com.example.sportworld.web.api.models.UserLogin;
+import com.example.sportworld.web.api.models.LoginInput;
 
 import java.util.Date;
 import java.util.List;
@@ -20,10 +20,10 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
-public class AuthorizationController {
+public class LoginController {
     private final UserService userService;
 
-    public AuthorizationController(UserService userService) {
+    public LoginController(UserService userService) {
         this.userService = userService;
     }
 
@@ -34,7 +34,7 @@ public class AuthorizationController {
     }
 
     @PostMapping("/login")
-    public UserLogin login(@RequestBody UserInput user) {
+    public LoginInput login(@RequestBody UserInput user) {
         int userID = userService.getUserByUsername(user.username).id;
         try {
             userService.authorizeUser(userID, user.password);
@@ -42,7 +42,7 @@ public class AuthorizationController {
             throw new IllegalArgumentException();
         }
         String token = getJWTToken(user.username);
-        return new UserLogin(String.valueOf(userID), token);
+        return new LoginInput(String.valueOf(userID), token);
     }
 
     private String getJWTToken(String username) {

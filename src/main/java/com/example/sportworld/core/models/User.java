@@ -23,4 +23,17 @@ public class User {
         this.role_id = role_id;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", salt='" + salt + '\'' +
+                ", role_id=" + role_id +
+                '}';
+    }
 }
