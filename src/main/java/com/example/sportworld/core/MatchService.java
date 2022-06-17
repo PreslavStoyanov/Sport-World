@@ -2,7 +2,6 @@ package com.example.sportworld.core;
 
 import com.example.sportworld.core.models.Match;
 import com.example.sportworld.repositories.MatchRepository;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,8 +12,8 @@ public class MatchService {
         this.matchRepository = matchRepository;
     }
 
-    public Match createMatch(String title, String content, int leagueID) {
-        return Mappers.fromMatchDAO(matchRepository.createMatch(title, content, leagueID));
+    public Match createMatch(String title, String content, int leagueID, int userID) {
+        return Mappers.fromMatchDAO(matchRepository.createMatch(title, content, leagueID, userID));
     }
 
     public List<Match> listMatches(int page, int pageSize) {
@@ -31,4 +30,5 @@ public class MatchService {
     public void deleteMatch(int id) {
         matchRepository.deleteMatch(id);
     }
+
 }

@@ -21,4 +21,9 @@ public class CoreBeans {
     public MatchService matchService(MatchRepository repository) {
         return new MatchService(repository);
     }
+
+    @Bean
+    public CommentService commentService(CommentRepository repository, UserRepository userRepository) {
+        return new CommentService(repository, userRepository);
+    }
 }

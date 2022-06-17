@@ -28,4 +28,10 @@ public class RepositoryBeans {
             TransactionTemplate txTemplate, JdbcTemplate jdbcTemplate) {
         return new SQLMatchRepository(txTemplate, jdbcTemplate);
     }
+
+    @Bean
+    CommentRepository commentRepository(
+            TransactionTemplate txTemplate, JdbcTemplate jdbcTemplate) {
+        return new SQLCommentRepository(txTemplate, jdbcTemplate);
+    }
 }

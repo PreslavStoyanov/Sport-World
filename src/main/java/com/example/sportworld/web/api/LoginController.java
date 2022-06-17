@@ -36,16 +36,17 @@ public class LoginController {
     @PostMapping("/login")
     public LoginInput login(@RequestBody UserInput user) {
         int userID = userService.getUserByUsername(user.username).id;
+        int roleID = userService.getUserByUsername(user.username).role_id;
         try {
             userService.authorizeUser(userID, user.password);
         } catch (InvalidUserParameterException e) {
             throw new IllegalArgumentException();
         }
-        String token = getJWTToken(user.username);
+        String token = getJWTToken(user.username, userID, roleID);
         return new LoginInput(String.valueOf(userID), token);
     }
 
-    private String getJWTToken(String username) {
+    private String getJWTToken(String username, int userID, int roleID) {
         String secretKey = "mySecretKey";
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
                 .commaSeparatedStringToAuthorityList("ROLE_USER");
@@ -58,8 +59,11 @@ public class LoginController {
                         grantedAuthorities.stream()
                                 .map(GrantedAuthority::getAuthority)
                                 .collect(Collectors.toList()))
+                .claim("id", userID)
+                .claim("username", username)
+                .claim("role_id", roleID)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 600000))
+                .setExpiration(new Date(System.currentTimeMillis() + 60000000))
                 .signWith(SignatureAlgorithm.HS512,
                         secretKey.getBytes()).compact();
 

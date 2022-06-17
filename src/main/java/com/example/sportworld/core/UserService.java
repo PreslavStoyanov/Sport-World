@@ -4,6 +4,7 @@ import com.example.sportworld.core.exceptions.InvalidUserParameterException;
 import com.example.sportworld.repositories.UserRepository;
 import com.example.sportworld.core.models.User;
 import com.example.sportworld.repositories.exceptions.UserNotFoundException;
+import com.google.gson.Gson;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 public class UserService {
     private final UserRepository userRepository;
+    Gson gson = new Gson();
     private final String paper = "fc3a3c20-a28d-4454-90dd-bf054315df22";
 
     public UserService(UserRepository userRepository) {
@@ -39,6 +41,20 @@ public class UserService {
         String passwordHash = sha256(salt + password + paper);
 
         return Mappers.fromUserDAO(userRepository.createUser(username, passwordHash, email, salt));
+    }
+
+    public User getUserInfoByToken(String token) {
+        String[] chunks = token.split("\\.");
+        Base64.Decoder decoder = Base64.getUrlDecoder();
+        String payload = new String(decoder.decode(chunks[1]));
+        return gson.fromJson(payload, User.class);
+    }
+
+    public void changePassword (String username, String newPassword) {
+        String salt = generateSalt();
+        String passwordHash = sha256(salt + newPassword + paper);
+
+        userRepository.changePassword(username, passwordHash, salt);
     }
 
     private String generateSalt() {

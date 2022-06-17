@@ -49,6 +49,18 @@ public class SQLUserRepository implements UserRepository {
     }
 
     @Override
+    public void changePassword(String username, String passwordHash, String salt) {
+        try {
+            txTemplate.execute(status -> {
+                jdbc.update(UPDATE_PASSWORD_AND_SALT, passwordHash, salt, username);
+                return null;
+            });
+        } catch (UserNotFoundException e) {
+            throw new UserNotFoundException();
+        }
+    }
+
+    @Override
     public UserDAO getUserByID(int id) {
         try {
             return jdbc.queryForObject(GET_USER_BY_ID, (rs, rowNum) -> fromResultSet(rs), id);
@@ -97,6 +109,8 @@ public class SQLUserRepository implements UserRepository {
     }
 
     static class Queries {
+        public static final String UPDATE_PASSWORD_AND_SALT = "UPDATE users SET password_hash = ?, salt = ? WHERE username = ?";
+
         public static final String INSERT_USER = "INSERT INTO users (username, password_Hash, email, salt) VALUES (?, ?, ?, ?)";
 
         public static final String LIST_USERS = "SELECT * FROM users LIMIT ?, ?";

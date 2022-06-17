@@ -5,6 +5,7 @@ import com.example.sportworld.repositories.MatchRepository;
 import com.example.sportworld.repositories.exceptions.MatchNotFoundException;
 import com.example.sportworld.repositories.models.LeagueDAO;
 import com.example.sportworld.repositories.models.MatchDAO;
+import com.example.sportworld.repositories.models.UserDAO;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -29,7 +30,7 @@ public class SQLMatchRepository implements MatchRepository {
     }
 
     @Override
-    public MatchDAO createMatch(String title, String content, int leagueID) {
+    public MatchDAO createMatch(String title, String content, int leagueID, int userID) {
         return txTemplate.execute(status -> {
             KeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -39,6 +40,7 @@ public class SQLMatchRepository implements MatchRepository {
                 ps.setString(1, title);
                 ps.setString(2, content);
                 ps.setInt(3, leagueID);
+                ps.setInt(4, userID);
 
                 return ps;
             }, keyHolder);
@@ -82,12 +84,13 @@ public class SQLMatchRepository implements MatchRepository {
                 rs.getTimestamp("creation_date"),
                 new LeagueDAO(
                         rs.getInt("league_id"),
-                        rs.getString("league"))
+                        rs.getString("league")),
+                rs.getInt("user")
         );
     }
 
     static class Queries {
-        public static final String INSERT_MATCH = "INSERT INTO matches (title, content, league_id) VALUES (?, ?, ?)";
+        public static final String INSERT_MATCH = "INSERT INTO matches (title, content, league_id, user_id) VALUES (?, ?, ?, ?)";
 
         public static final String GET_MATCH = """
                 SELECT\s
@@ -96,7 +99,8 @@ public class SQLMatchRepository implements MatchRepository {
                     m.content AS content,
                     m.creation_date AS creation_date,
                     l.id AS league_id,
-                    l.name AS league
+                    l.name AS league,
+                    m.user_id AS user
                 FROM
                     matches m
                         JOIN
@@ -111,7 +115,8 @@ public class SQLMatchRepository implements MatchRepository {
                     m.content as content,
                     m.creation_date as creation_date,
                     l.id as league_id,
-                    l.name as league
+                    l.name as league,
+                    m.user_id AS user
                 FROM
                     matches m
                 JOIN
