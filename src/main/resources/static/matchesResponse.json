@@ -1,0 +1,134 @@
+{
+  "events": [
+    {
+      "tournament": {
+        "name": "CFA China League",
+        "slug": "cfa-china-league",
+        "category": {
+          "name": "China",
+          "slug": "china",
+          "sport": {
+            "name": "Football",
+            "slug": "football",
+            "id": 1
+          },
+          "id": 99,
+          "flag": "china",
+          "alpha2": "CN"
+        },
+        "uniqueTournament": {
+          "name": "CFA China League",
+          "slug": "cfa-china-league",
+          "category": {
+            "name": "China",
+            "slug": "china",
+            "sport": {
+              "name": "Football",
+              "slug": "football",
+              "id": 1
+            },
+            "id": 99,
+            "flag": "china",
+            "alpha2": "CN"
+          },
+          "userCount": 3271,
+          "id": 782,
+          "hasEventPlayerStatistics": false,
+          "hasPositionGraph": false
+        },
+        "priority": 0,
+        "id": 3583
+      },
+      "roundInfo": {
+        "round": 3
+      },
+      "customId": "vJBbsmAac",
+      "status": {
+        "code": 6,
+        "description": "1st half",
+        "type": "inprogress"
+      },
+      "winnerCode": 0,
+      "homeTeam": {
+        "name": "Jiangxi Beidamen",
+        "slug": "jiangxi-beidamen",
+        "shortName": "Jiangxi",
+        "gender": "M",
+        "sport": {
+          "name": "Football",
+          "slug": "football",
+          "id": 1
+        },
+        "userCount": 1113,
+        "nameCode": "JB",
+        "disabled": false,
+        "national": false,
+        "type": 0,
+        "id": 191720,
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#0000ff",
+          "secondary": "#ea5404",
+          "text": "#ea5404"
+        }
+      },
+      "awayTeam": {
+        "name": "Shaanxi Chang'an Athletic",
+        "slug": "shaanxi-changan-athletic",
+        "shortName": "Shaanxi",
+        "gender": "M",
+        "sport": {
+          "name": "Football",
+          "slug": "football",
+          "id": 1
+        },
+        "userCount": 1684,
+        "nameCode": "SCA",
+        "disabled": false,
+        "national": false,
+        "type": 0,
+        "id": 251262,
+        "subTeams": [],
+        "teamColors": {
+          "primary": "#2c2b57",
+          "secondary": "#ffffff",
+          "text": "#ffffff"
+        }
+      },
+      "homeScore": {
+        "current": 1,
+        "display": 1
+      },
+      "awayScore": {
+        "current": 0,
+        "display": 0
+      },
+      "coverage": -1,
+      "time": {
+        "initial": 0,
+        "max": 2700,
+        "extra": 540,
+        "currentPeriodStartTimestamp": 1655451006
+      },
+      "changes": {
+        "changes": [
+          "cardsCode"
+        ],
+        "changeTimestamp": 1655452523
+      },
+      "hasGlobalHighlights": false,
+      "id": 10371431,
+      "statusTime": {
+        "prefix": "",
+        "initial": 0,
+        "max": 2700,
+        "timestamp": 1655451006,
+        "extra": 540
+      },
+      "startTimestamp": 1655451000,
+      "slug": "shaanxi-changan-athletic-jiangxi-beidamen",
+      "lastPeriod": "period1",
+      "finalResultOnly": false
+    }
+  ]
+}
