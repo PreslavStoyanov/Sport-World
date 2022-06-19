@@ -3,14 +3,12 @@ package com.example.sportworld.web.api;
 import com.example.sportworld.core.UserService;
 import com.example.sportworld.core.exceptions.InvalidUserParameterException;
 import com.example.sportworld.web.api.models.ChangePasswordInput;
-import com.google.gson.Gson;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.sportworld.core.models.User;
 
-import java.util.Base64;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -19,19 +17,8 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-
     public UserController(UserService userService) {
         this.userService = userService;
-    }
-
-    @PostMapping(value = "/changePassword")
-    public void changePassword(@RequestBody ChangePasswordInput input) {
-        try {
-            userService.authorizeUser(userService.getUserByUsername(input.username).id, input.oldPassword);
-        } catch (InvalidUserParameterException e) {
-            throw new InvalidUserParameterException();
-        }
-        userService.changePassword(input.username, input.newPassword);
     }
 
     @GetMapping(value = "/current")
@@ -44,8 +31,6 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-
 
     @GetMapping
     public List<User> listUsers(

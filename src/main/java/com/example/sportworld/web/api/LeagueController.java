@@ -21,8 +21,13 @@ public class LeagueController {
     }
 
     @PostMapping
-    public League createLeague(@RequestBody LeagueInput league) {
-        return leagueService.createLeague(league.name);
+    public ResponseEntity<League> createLeague(@RequestBody LeagueInput leagueInput) {
+        try {
+            League league = leagueService.createLeague(leagueInput.name);
+            return new ResponseEntity<>(league, HttpStatus.OK);
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping(value = "{id}")

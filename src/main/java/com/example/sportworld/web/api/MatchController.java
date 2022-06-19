@@ -5,12 +5,16 @@ import com.example.sportworld.core.UserService;
 import com.example.sportworld.core.models.Match;
 import com.example.sportworld.core.models.User;
 import com.example.sportworld.web.api.models.MatchInput;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -55,4 +59,6 @@ public class MatchController {
     public void deleteMatch(@PathVariable Integer id) {
         matchService.deleteMatch(id);
     }
+
+
 }
