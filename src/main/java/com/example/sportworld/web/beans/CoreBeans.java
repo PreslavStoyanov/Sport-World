@@ -26,4 +26,12 @@ public class CoreBeans {
     public CommentService commentService(CommentRepository repository, UserRepository userRepository) {
         return new CommentService(repository, userRepository);
     }
+
+    @Bean MailService mailService() {
+        return new MailService();
+    }
+
+    @Bean MailTokenService mailTokenService(MailTokenRepository repository) {
+        return new MailTokenService(repository);
+    }
 }

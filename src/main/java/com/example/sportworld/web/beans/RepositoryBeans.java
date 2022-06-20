@@ -1,6 +1,7 @@
 package com.example.sportworld.web.beans;
 
 import com.example.sportworld.repositories.*;
+import com.example.sportworld.repositories.models.MailTokenDAO;
 import com.example.sportworld.repositories.mysql.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,24 +15,29 @@ public class RepositoryBeans {
     @Bean
     public UserRepository userRepository(
             TransactionTemplate txTemplate, JdbcTemplate jdbcTemplate) {
-        return new SQLUserRepository(txTemplate, jdbcTemplate);
+        return new MySQLUserRepository(txTemplate, jdbcTemplate);
     }
 
     @Bean
     LeagueRepository leagueRepository(
             TransactionTemplate txTemplate, JdbcTemplate jdbcTemplate) {
-        return new SQLLeagueRepository(txTemplate, jdbcTemplate);
+        return new MySQLLeagueRepository(txTemplate, jdbcTemplate);
     }
 
     @Bean
     MatchRepository matchRepository(
             TransactionTemplate txTemplate, JdbcTemplate jdbcTemplate) {
-        return new SQLMatchRepository(txTemplate, jdbcTemplate);
+        return new MySQLMatchRepository(txTemplate, jdbcTemplate);
     }
 
     @Bean
     CommentRepository commentRepository(
             TransactionTemplate txTemplate, JdbcTemplate jdbcTemplate) {
-        return new SQLCommentRepository(txTemplate, jdbcTemplate);
+        return new MySQLCommentRepository(txTemplate, jdbcTemplate);
+    }
+
+    @Bean
+    MailTokenRepository mailTokenRepository(TransactionTemplate txTemplate, JdbcTemplate jdbcTemplate) {
+        return new MySQLMailTokenRepository(txTemplate, jdbcTemplate);
     }
 }

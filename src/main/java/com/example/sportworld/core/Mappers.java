@@ -1,10 +1,7 @@
 package com.example.sportworld.core;
 
 import com.example.sportworld.core.models.*;
-import com.example.sportworld.repositories.models.CommentDAO;
-import com.example.sportworld.repositories.models.LeagueDAO;
-import com.example.sportworld.repositories.models.MatchDAO;
-import com.example.sportworld.repositories.models.UserDAO;
+import com.example.sportworld.repositories.models.*;
 
 public class Mappers {
     public static User fromUserDAO(UserDAO user) {
@@ -28,5 +25,9 @@ public class Mappers {
         return new Comment(
                 comment.id, comment.content, comment.creationDate,
                 comment.userID, comment.matchID);
+    }
+
+    public static MailToken fromMailTokenDAO(MailTokenDAO mailToken) {
+        return new MailToken(mailToken.id, mailToken.token, mailToken.userID);
     }
 }

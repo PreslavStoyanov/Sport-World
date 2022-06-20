@@ -1,8 +1,6 @@
 package com.example.sportworld.web.api;
 
 import com.example.sportworld.core.UserService;
-import com.example.sportworld.core.exceptions.InvalidUserParameterException;
-import com.example.sportworld.web.api.models.ChangePasswordInput;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

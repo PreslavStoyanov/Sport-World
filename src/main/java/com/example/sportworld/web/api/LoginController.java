@@ -59,7 +59,7 @@ public class LoginController {
                         grantedAuthorities.stream()
                                 .map(GrantedAuthority::getAuthority)
                                 .collect(Collectors.toList()))
-                .claim("userid", userID)
+                .claim("id", userID)
                 .claim("username", username)
                 .claim("role_id", roleID)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
