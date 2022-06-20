@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6b36aedb-c312-4eea-b17e-b28c5abed72f" name="Changes" comment="Integrate mailGun">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile-amd64" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#ib_16384_0.dblwr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#ib_16384_1.dblwr" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_1.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_10.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_2.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_3.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_4.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_5.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_6.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_7.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_8.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/#innodb_temp/temp_9.ibt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/auto.cnf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/binlog.000001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/binlog.000002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/binlog.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ca-key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ca.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/client-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/client-key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ib_buffer_pool" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ib_logfile0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ib_logfile1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ibdata1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ibtmp1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mysql.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mysql/general_log.CSM" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mysql/general_log.CSV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mysql/general_log_213.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mysql/slow_log.CSM" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mysql/slow_log.CSV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mysql/slow_log_214.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/accounts_145.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/binary_log_trans_189.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/cond_instances_82.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/data_lock_waits_161.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/data_locks_160.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/error_log_83.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_errors_su_139.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_errors_su_140.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_errors_su_141.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_errors_su_142.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_errors_su_143.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_cu_111.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_hi_112.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_hi_113.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_su_114.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_su_115.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_su_116.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_su_117.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_stages_su_118.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_119.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_120.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_121.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_122.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_123.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_124.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_125.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_126.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_127.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_128.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_129.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_statement_130.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_131.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_132.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_133.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_134.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_135.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_136.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_137.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_transacti_138.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_cur_84.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_his_85.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_his_86.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_sum_87.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_sum_88.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_sum_89.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_sum_90.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_sum_91.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/events_waits_sum_92.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/file_instances_93.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/file_summary_by__94.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/file_summary_by__95.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/global_status_181.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/global_variables_184.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/host_cache_96.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/hosts_146.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/keyring_componen_191.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/keyring_keys_152.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/log_status_174.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/memory_summary_b_154.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/memory_summary_b_155.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/memory_summary_b_156.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/memory_summary_b_157.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/memory_summary_g_153.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/metadata_locks_159.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/mutex_instances_97.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/objects_summary__98.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/performance_time_99.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/persisted_variab_187.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/prepared_stateme_175.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/processlist_100.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_appl_165.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_appl_166.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_appl_167.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_appl_168.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_appl_170.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_appl_171.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_asyn_172.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_asyn_173.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_conn_162.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_conn_164.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_grou_163.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/replication_grou_169.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/rwlock_instances_101.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/session_account__151.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/session_connect__150.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/session_status_182.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/session_variable_185.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/setup_actors_102.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/setup_consumers_103.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/setup_instrument_104.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/setup_objects_105.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/setup_threads_106.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/socket_instances_147.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/socket_summary_b_148.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/socket_summary_b_149.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/status_by_accoun_177.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/status_by_host_178.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/status_by_thread_179.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/status_by_user_180.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/table_handles_158.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/table_io_waits_s_107.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/table_io_waits_s_108.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/table_lock_waits_109.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/threads_110.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/tls_channel_stat_190.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/user_defined_fun_188.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/user_variables_b_176.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/users_144.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/variables_by_thr_183.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/performance_schema/variables_info_186.sdi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/private_key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/public_key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/server-cert.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/server-key.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sport_world/comments.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sport_world/leagues.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sport_world/mail_tokens.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sport_world/matches.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sport_world/roles.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sport_world/user_activity_log.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sport_world/users.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sys/sys_config.ibd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/undo_001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/undo_002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.prod.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/sport-world.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sport-world2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/CommentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/LeagueService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/MailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/MailTokenService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/Mappers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/MatchService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/exceptions/InvalidUserParameterException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/models/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/models/League.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/models/MailToken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/models/Match.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/core/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/CommentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/LeagueRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/MailTokenRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/MatchRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/exceptions/CommentNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/exceptions/LeagueNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/exceptions/MailTokenNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/exceptions/MatchNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/exceptions/UserAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/exceptions/UserNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/models/CommentDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/models/LeagueDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/models/MailTokenDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/models/MatchDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/models/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/mysql/MySQLCommentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/mysql/MySQLLeagueRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/mysql/MySQLMailTokenRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/mysql/MySQLMatchRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/repositories/mysql/MySQLUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/CommentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/LeagueController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/MailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/MatchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/PasswordController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/ThirdPartyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/models/ChangePasswordInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/models/CommentInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/models/LeagueInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/models/LoginInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/models/MatchInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/api/models/UserInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/beans/CoreBeans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/beans/DBBeans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/beans/RepositoryBeans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/security/JWTAuthorizationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sportworld/web/security/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/matchesResponse.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sportworld/web/api/CommentControllerTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sportworld/web/api/LeagueControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sportworld/web/api/LoginControllerTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sportworld/web/api/MatchControllerTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sportworld/web/api/PasswordControllerTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sportworld/web/api/UserControllerTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AIDXxBItPaDGddN3gJ59UWtILo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/preslav.stoyanov/IdeaProjects/sport-world/backend",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\preslav.stoyanov\IdeaProjects\sport-world" />
+      <recent name="C:\Users\preslav.stoyanov\IdeaProjects\sport-world\src\main\java\com\example\sportworld" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\preslav.stoyanov\IdeaProjects\sport-world\src\main\resources\static" />
+      <recent name="C:\Users\preslav.stoyanov\IdeaProjects\sport-world\src\main\java" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.sportworld.repositories" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.sportworld.web.Main" />
+      <module name="sport-world.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sportworld.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests " type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.example.sportworld.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Tests " />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Tests " />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b36aedb-c312-4eea-b17e-b28c5abed72f" name="Changes" comment="" />
+      <created>1654688249349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654688249349</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Users APIs and login, register with auth.">
+      <created>1654781328771</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654781328772</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Users APIs and login, register with auth.">
+      <created>1654974963097</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654974963097</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Matches and Leagues endpoints">
+      <created>1655054039576</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655054039577</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Comments endpoints">
+      <created>1655456702192</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655456702192</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Comments endpoints">
+      <created>1655461589685</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655461589685</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Junit tests">
+      <created>1655643504998</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655643504998</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Integrate mailGun">
+      <created>1655715211585</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1655715211585</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Users APIs and login, register with auth." />
+    <MESSAGE value="Matches and Leagues endpoints" />
+    <MESSAGE value="Comments endpoints" />
+    <MESSAGE value="Third Party API" />
+    <MESSAGE value="Junit tests and Third Party API" />
+    <MESSAGE value="Integrate mailGun" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrate mailGun" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sport_world$PasswordControllerTests.ic" NAME="PasswordControllerTests Coverage Results" MODIFIED="1655640930648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sport_world$CommentControllerTests.ic" NAME="CommentControllerTests Coverage Results" MODIFIED="1655637528229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sport_world$LoginControllerTests.ic" NAME="LoginControllerTests Coverage Results" MODIFIED="1655635089074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sport_world$MatchControllerTests.ic" NAME="MatchControllerTests Coverage Results" MODIFIED="1655635109525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sport_world$UserControllerTests.ic" NAME="UserControllerTests Coverage Results" MODIFIED="1655635112450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/sport_world$LeagueControllerTest.ic" NAME="LeagueControllerTest Coverage Results" MODIFIED="1655639344525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
