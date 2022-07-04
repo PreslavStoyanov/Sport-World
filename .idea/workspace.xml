@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b36aedb-c312-4eea-b17e-b28c5abed72f" name="Changes" comment="Integrate mailGun">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#ib_16384_0.dblwr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_1.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_1.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_10.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_10.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_2.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_2.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_3.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_3.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_4.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_4.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_5.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_5.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_6.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_6.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_7.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_7.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_8.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_8.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_9.ibt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/#innodb_temp/temp_9.ibt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/binlog.000005" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/binlog.000005" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/binlog.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/ib_logfile0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/ibdata1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/ibtmp1" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/ibtmp1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/mysql.ibd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/undo_001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/data/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/backend/data/undo_002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/migrations/sport-world.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/migrations/sport-world.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/MatchService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/MatchService.js" afterDir="false" />
-    </list>
+    <list default="true" id="6b36aedb-c312-4eea-b17e-b28c5abed72f" name="Changes" comment="Integrate mailGun" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

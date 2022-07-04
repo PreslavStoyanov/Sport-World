@@ -2,13 +2,11 @@
 
 Full stack website for the sport world built with React, Spring, and MySQL.
 
-Note: This is the backend part of the project. To view the frontend [click here.]()
-
 ## Features
 - Commenting on futured matches
 - Create and delete custom categories
 - User passwords handling for not losing account
-- Receive daily top leagues matches 
+- Receive daily top leagues matches
 
 ### Technical features
 - JWT authentication
@@ -29,6 +27,6 @@ Note: This is the backend part of the project. To view the frontend [click here.
 
 2. Set up a MySQL server and execute ```sport-world.sql``` to create the database
 
-3. Edit the config file ```src/main/resiyrces/application.properties``` to point to your MySQL server
+3. Edit the config file ```src/main/resources/application.properties``` to point to your MySQL server
 
 4. Build with java 17 and run

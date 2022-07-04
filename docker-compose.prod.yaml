@@ -1,0 +1,65 @@
+version: '3.1'
+
+services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: yes
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: bitnami/kafka:latest
+    environment:
+      ALLOW_PLAINTEXT_LISTENER: yes
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+    ports:
+      - "9092:9092"
+
+#  fe:
+#    image: preslavst/sport-world-fe:latest
+#    container_name: react
+#    restart: always
+#    environment:
+#      REACT_APP_SERVER_HOSTNAME: "http://sport-world:8080"
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - app
+
+#  app:
+#    image: preslavst/sport-world:amd64-latest
+#    container_name: sport-world
+#    restart: always
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - sport_world_db
+
+  migration-tool:
+    image: flyway/flyway
+    container_name: flyway
+    #command: -target="001" migrate
+    command: migrate
+    restart: on-failure
+    volumes:
+      - ./migrations:/flyway/sql
+      - ./migrations/conf:/flyway/conf
+    depends_on:
+      - mysql
+    links:
+      - db:mysql
+
+  db:
+    image: mysql
+    container_name: sport_world_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sport_world
+    volumes:
+      - ./data:/var/lib/mysql
+      #- ./migrations:/docker-entrypoint-initdb.d/:ro
