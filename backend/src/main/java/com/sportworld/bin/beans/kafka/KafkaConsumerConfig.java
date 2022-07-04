@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConsumerConfig {
-    @Value("localhost:9092")
+    @Value("kafka:9092")
     private String bootstrapServers;
 
     public Map<String, Object> consumerConfig(){
