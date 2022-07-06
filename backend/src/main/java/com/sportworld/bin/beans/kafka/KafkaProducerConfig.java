@@ -1,6 +1,7 @@
 package com.sportworld.bin.beans.kafka;
 
 import com.sportworld.lib.events.UserCreatedEvent;
+import com.sportworld.lib.events.UserNotificationEmailJob;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,12 +17,19 @@ import java.util.Map;
 
 @Configuration
 public class KafkaProducerConfig {
-    @Value("kafka:9092")
+    @Value("localhost:9092")
     private String bootstrapServers;
 
     @Bean
     public KafkaTemplate<String, UserCreatedEvent> userCreatedPublisher(
             ProducerFactory<String, UserCreatedEvent> producerFactory) {
+        return new KafkaTemplate<>(
+                new DefaultKafkaProducerFactory<>(producerConfig()));
+    }
+
+    @Bean
+    public KafkaTemplate<String, UserNotificationEmailJob> userNotificationEmailJobPublisher(
+            ProducerFactory<String, UserNotificationEmailJob> producerFactory) {
         return new KafkaTemplate<>(
                 new DefaultKafkaProducerFactory<>(producerConfig()));
     }

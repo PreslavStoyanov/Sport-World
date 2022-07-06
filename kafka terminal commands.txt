@@ -1,0 +1,16 @@
+better:
+	https://www.conduktor.io/kafka/kafka-topics-cli-tutorial
+
+https://towardsdev.com/apache-kafka-cli-commands-cheatsheet-584800de1477
+
+-- list topics
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+-- describe topic
+kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic com.sportworld.user-notification-email
+
+-- change topic partitions
+kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic com.sportworld.user-notification-email --partitions 4
+
+-- delete topic
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic com.sportworld.user-notification-email

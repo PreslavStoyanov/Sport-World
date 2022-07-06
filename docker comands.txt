@@ -1,21 +1,24 @@
---build frontend image
+-- build frontend image
 docker build -f Dockerfile-fe -t preslavst/sport-world-fe:latest .
 
---build backend image
+-- build backend image
 docker build -f Dockerfile-amd64 -t preslavst/sport-world:amd64-latest .
 
---docker compose up (with different file name)
+-- docker compose up (with different file name)
 docker compose -f docker-compose.prod.yaml up
 
---open container cli(terminal)
+-- open container cli(terminal)
 docker exec -it {container-name}
 
---login
+-- login
 docker login
 
---dockerHub publish files
+-- dockerHub publish files
 docker push preslavst/sport-world:amd64-latest
 docker push preslavst/sport-world-fe:latest
+
+-- docker open container 
+docker exec -it nameOfContainer
 
 --zip files
 zip -r sport-world.zip sport-world

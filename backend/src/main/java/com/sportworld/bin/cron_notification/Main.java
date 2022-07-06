@@ -7,9 +7,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication(scanBasePackages = {"com.sportworld.bin.beans", "com.sportworld.bin.cron_notification"})
 @EnableScheduling
-public class CronMain {
+public class Main {
     public static void main(String[] args) {
-        new SpringApplicationBuilder(CronMain.class)
+        new SpringApplicationBuilder(Main.class)
                 .web(WebApplicationType.NONE)
                 .run(args);
     }

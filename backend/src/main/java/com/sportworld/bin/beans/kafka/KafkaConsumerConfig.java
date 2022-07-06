@@ -1,6 +1,7 @@
 package com.sportworld.bin.beans.kafka;
 
 import com.sportworld.lib.events.UserCreatedEvent;
+import com.sportworld.lib.events.UserNotificationEmailJob;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConsumerConfig {
-    @Value("kafka:9092")
+    @Value("localhost:9092")
     private String bootstrapServers;
 
     public Map<String, Object> consumerConfig(){
@@ -39,6 +40,20 @@ public class KafkaConsumerConfig {
         ConcurrentKafkaListenerContainerFactory<String, UserCreatedEvent> f =
                 new ConcurrentKafkaListenerContainerFactory<>();
         f.setConsumerFactory(userCreatedConsumerFactory());
+        return f;
+    }
+
+    public ConsumerFactory<String, UserNotificationEmailJob> userNotificationEmailConsumerFactory() {
+        return new DefaultKafkaConsumerFactory<>(
+                consumerConfig(), new StringDeserializer(), new JsonDeserializer<>(UserNotificationEmailJob.class));
+    }
+
+    @Bean
+    public KafkaListenerContainerFactory<
+            ConcurrentMessageListenerContainer<String, UserNotificationEmailJob>> userNotificationEmailContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, UserNotificationEmailJob> f =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        f.setConsumerFactory(userNotificationEmailConsumerFactory());
         return f;
     }
 }
