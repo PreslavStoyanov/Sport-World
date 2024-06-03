@@ -27,8 +27,8 @@ public class MatchController {
     @PostMapping
     public ResponseEntity<Match> createMatch(@RequestBody MatchInput match, @RequestHeader("Authorization") String token) {
         User user = userService.getUserInfoByToken(token);
-        if (user.role_id == 2) {
-            return new ResponseEntity<>(matchService.createMatch(match.title, match.content, match.leagueID, user.id), HttpStatus.OK);
+        if (user.getRoleId() == 2) {
+            return new ResponseEntity<>(matchService.createMatch(match.title, match.content, match.leagueID, user.getId()), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }

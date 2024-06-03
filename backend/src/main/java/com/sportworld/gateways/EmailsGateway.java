@@ -37,12 +37,12 @@ public class EmailsGateway {
         }
     }
 
-    private static String postMessage(String URL, List<NameValuePair> form) throws Exception {
-        if (form == null || URL == null || URL.trim().length() == 0) return "";
+    private static String postMessage(String url, List<NameValuePair> form) throws Exception {
+        if (form == null || url == null || url.trim().isEmpty()) return "";
         StringBuilder stringBuilder = new StringBuilder();
 
         org.apache.http.client.HttpClient client = buildHttpClient();
-        HttpPost httpPost = new HttpPost(URL);
+        HttpPost httpPost = new HttpPost(url);
         HttpResponse response = null;
         try {
             UrlEncodedFormEntity entity = new UrlEncodedFormEntity(form, Consts.UTF_8);
@@ -53,10 +53,10 @@ public class EmailsGateway {
             StatusLine statusLine = response.getStatusLine();
             int statusCode = statusLine.getStatusCode();
             if (statusCode == 200) {
-                System.out.println("post mailgun messages ok:" + URL);
+                System.out.println("post mailgun messages ok:" + url);
             } else {
                 System.out.println("Failed to post mailgun,status=" + statusCode);
-                throw new RuntimeException("post failed:" + URL);
+                throw new RuntimeException("post failed:" + url);
             }
         } finally {
             if (response != null && response.getEntity() != null) {

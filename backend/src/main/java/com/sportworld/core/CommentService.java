@@ -5,11 +5,10 @@ import com.sportworld.repositories.CommentRepository;
 import com.sportworld.repositories.UserRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CommentService {
-    private CommentRepository commentRepository;
-    private UserRepository userRepository;
+    private final CommentRepository commentRepository;
+    private final UserRepository userRepository;
 
     public CommentService(CommentRepository commentRepository, UserRepository userRepository) {
         this.commentRepository = commentRepository;
@@ -24,17 +23,15 @@ public class CommentService {
         return commentRepository.listComments(page, pageSize)
                 .stream()
                 .map(Mappers::fromCommentDAO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public List<Comment> listCommentsByMatch(int matchID) {
         List<Comment> list = commentRepository.listCommentsByMatch(matchID)
                 .stream()
                 .map(Mappers::fromCommentDAO)
-                .collect(Collectors.toList());
-        list.forEach(comment -> {
-            comment.author = userRepository.getUserByID(comment.userID).username();
-        });
+                .toList();
+        list.forEach(comment -> comment.setAuthor(userRepository.getUserByID(comment.getUserID()).username()));
         return list;
     }
 

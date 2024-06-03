@@ -13,7 +13,7 @@ public class UserCreatedConsumer {
     )
     void listener(UserCreatedEvent data) {
         System.out.println("Listener received: " + data + " ");
-        if (data.user.username.equals("manolchoo")) {
+        if (data.user.getUsername().equals("manolchoo")) {
             System.out.println("Something is fishy... This guy is called Manol, but no one is called like that anymore!");
         }
     }

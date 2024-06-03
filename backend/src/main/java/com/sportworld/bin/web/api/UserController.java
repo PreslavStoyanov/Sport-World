@@ -23,7 +23,7 @@ public class UserController {
     public ResponseEntity<User> getUser(@RequestHeader("Authorization") String token) {
         User jsonUser = userService.getUserInfoByToken(token);
         try {
-            User user = userService.getUserByID(jsonUser.id);
+            User user = userService.getUserByID(jsonUser.getId());
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (EmptyResultDataAccessException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

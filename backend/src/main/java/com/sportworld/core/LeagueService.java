@@ -4,7 +4,6 @@ import com.sportworld.core.models.League;
 import com.sportworld.repositories.LeagueRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LeagueService {
     private final LeagueRepository leagueRepository;
@@ -21,7 +20,7 @@ public class LeagueService {
         return leagueRepository.listLeagues(page, pageSize)
                 .stream()
                 .map(Mappers::fromLeagueDAO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public League getLeague (int id) {

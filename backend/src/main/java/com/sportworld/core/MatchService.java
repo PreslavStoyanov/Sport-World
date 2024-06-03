@@ -2,8 +2,8 @@ package com.sportworld.core;
 
 import com.sportworld.core.models.Match;
 import com.sportworld.repositories.MatchRepository;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MatchService {
     private final MatchRepository matchRepository;
@@ -20,7 +20,7 @@ public class MatchService {
         return matchRepository.listMatches(page, pageSize)
                 .stream()
                 .map(Mappers::fromMatchDAO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public Match getMatch(int id) {

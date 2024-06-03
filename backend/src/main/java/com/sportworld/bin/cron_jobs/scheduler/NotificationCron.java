@@ -27,8 +27,8 @@ public class NotificationCron {
         while (resultsCnt > 0) {
             List<User> users = userService.listUsers(page, 1000);
             for (User u : users) {
-                System.out.println("-------------------------------------------\n\nSending notification for user " + u.id);
-                kafkaGateway.sendUserNotificationEmailJob(new UserNotificationEmailJob(u.id));
+                System.out.println("-------------------------------------------\n\nSending notification for user " + u.getId());
+                kafkaGateway.sendUserNotificationEmailJob(new UserNotificationEmailJob(u.getId()));
             }
 
             page++;

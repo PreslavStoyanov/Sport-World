@@ -104,7 +104,7 @@ public class MySQLUserRepository implements UserRepository {
                 rs.getString("phone_number"),
                 rs.getTimestamp("registration_date"),
                 rs.getString("salt"),
-                rs.getInt("role_id")
+                rs.getInt("roleId")
         );
     }
 

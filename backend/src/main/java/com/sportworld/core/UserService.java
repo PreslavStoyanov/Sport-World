@@ -12,12 +12,11 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class UserService {
     private final UserRepository userRepository;
     Gson gson = new Gson();
-    private final String paper = "fc3a3c20-a28d-4454-90dd-bf054315df22";
+    private static final String PAPER = "fc3a3c20-a28d-4454-90dd-bf054315df22";
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -30,15 +29,15 @@ public class UserService {
         } catch (UserNotFoundException e) {
             throw new UserNotFoundException();
         }
-        String hash = sha256(user.salt + password + paper);
-        if (!hash.equals(user.passwordHash))
+        String hash = sha256(user.getSalt() + password + PAPER);
+        if (!hash.equals(user.getPasswordHash()))
             throw new InvalidUserParameterException();
     }
 
     public User createUser(String username, String password, String email) {
         String salt = generateSalt();
 
-        String passwordHash = sha256(salt + password + paper);
+        String passwordHash = sha256(salt + password + PAPER);
 
         return Mappers.fromUserDAO(userRepository.createUser(username, passwordHash, email, salt));
     }
@@ -52,7 +51,7 @@ public class UserService {
 
     public void changePassword (String username, String newPassword) {
         String salt = generateSalt();
-        String passwordHash = sha256(salt + newPassword + paper);
+        String passwordHash = sha256(salt + newPassword + PAPER);
 
         userRepository.changePassword(username, passwordHash, salt);
     }
@@ -89,7 +88,7 @@ public class UserService {
         return userRepository.listUsers(page, pageSize)
                 .stream()
                 .map(Mappers::fromUserDAO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public User getUserByID(int id) {

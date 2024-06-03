@@ -1,4 +1,4 @@
-package com.sportworld.bin.security.security;
+package com.sportworld.bin.security;
 
 import java.io.IOException;
 import java.util.List;

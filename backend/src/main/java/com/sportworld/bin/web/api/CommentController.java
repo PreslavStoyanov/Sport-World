@@ -28,7 +28,7 @@ public class CommentController {
     public ResponseEntity<Comment> createComment(@RequestBody CommentInput comment, @RequestHeader("Authorization") String token) {
         User user = userService.getUserInfoByToken(token);
         try {
-            return new ResponseEntity<>(commentService.createComment(comment.content, user.id, comment.matchID), HttpStatus.OK);
+            return new ResponseEntity<>(commentService.createComment(comment.content, user.getId(), comment.matchID), HttpStatus.OK);
         } catch (EmptyResultDataAccessException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -19,7 +19,6 @@ import com.sportworld.core.UserService;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -43,8 +42,8 @@ public class LoginController {
 
     @PostMapping("/login")
     public LoginInput login(@RequestBody UserInput user) {
-        int userID = userService.getUserByUsername(user.username).id;
-        int roleID = userService.getUserByUsername(user.username).role_id;
+        int userID = userService.getUserByUsername(user.username).getId();
+        int roleID = userService.getUserByUsername(user.username).getRoleId();
         try {
             userService.authorizeUser(userID, user.password);
         } catch (InvalidUserParameterException e) {
@@ -63,13 +62,10 @@ public class LoginController {
                 .builder()
                 .setId("softtekJWT")
                 .setSubject(username)
-                .claim("authorities",
-                        grantedAuthorities.stream()
-                                .map(GrantedAuthority::getAuthority)
-                                .collect(Collectors.toList()))
+                .claim("authorities", grantedAuthorities.stream().map(GrantedAuthority::getAuthority).toList())
                 .claim("id", userID)
                 .claim("username", username)
-                .claim("role_id", roleID)
+                .claim("roleId", roleID)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 60000000))
                 .signWith(SignatureAlgorithm.HS512,

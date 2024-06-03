@@ -15,18 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
-public class UserControllerTests {
+class UserControllerTests {
     private UserController userController;
     private UserService userService;
     private UserRepository userRepository;
-    private static final String token = "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViI" +
-            "joiUHJlc2xhdiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6MSwidXNlcm5hbWUiOiJ1c2V" +
-            "yIiwicm9sZV9pZCI6MSwiaWF0IjoxNjU1NDcyMjkxLCJleHAiOjE2NTU1MzIyOTF9.PGuBzVg43t6sFFXv" +
-            "fU4_blDxVlZOsN2XIog-E5G5vM125lH-kSIse3bjB5bJxWI-7cX_vQpSaUoEAzcUzFhXrw";
+    private static final String token = "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiUHJlc2xhdiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyIiwicm9sZUlkIjoxLCJpYXQiOjE2NTU0NzIyOTEsImV4cCI6MTY1NTUzMjI5MX0.7mIC5PZG0OKSTeK0UruIcPPPyPSnVDCkX06HVxkAwBZQ4dyYR_jSDpFnt5rBdtnpOxx8Nxd_bYI3SKmjRKP9zw";
     private final UserDAO template = new UserDAO(1, "user",
             "psd", "user@abv.com", null, null, "123", 1);
 
@@ -39,13 +36,13 @@ public class UserControllerTests {
     }
 
     @Test
-    public void getUserTest() {
+    void getUserTest() {
         User tokenInfo = userService.getUserInfoByToken(token);
         when(userRepository.getUserByID(anyInt())).thenReturn(template);
 
-        assertEquals(template.id(), Objects.requireNonNull(tokenInfo).id);
-        assertEquals(template.username(), tokenInfo.username);
-        assertEquals(template.roleId(), tokenInfo.role_id);
+        assertEquals(template.id(), Objects.requireNonNull(tokenInfo).getId());
+        assertEquals(template.username(), tokenInfo.getUsername());
+        assertEquals(template.roleId(), tokenInfo.getRoleId());
 
         ResponseEntity<?> response = userController.getUser(token);
 
@@ -53,7 +50,7 @@ public class UserControllerTests {
     }
 
     @Test
-    public void listUsersTest() {
+    void listUsersTest() {
         List<UserDAO> users = new ArrayList<>();
         users.add(template);
         when(userRepository.listUsers(anyInt(), anyInt())).thenReturn(users);
@@ -64,13 +61,13 @@ public class UserControllerTests {
 
         assertEquals(users.size(), response.size());
         for (int i = 0; i < users.size(); i++) {
-            assertEquals(users.get(i).id(), response.get(i).id);
-            assertEquals((users.get(i).username()), response.get(i).username);
+            assertEquals(users.get(i).id(), response.get(i).getId());
+            assertEquals((users.get(i).username()), response.get(i).getUsername());
         }
     }
 
     @Test
-    public void deleteUserTest() {
+    void deleteUserTest() {
         userController.deleteUser(1);
 
         verify(userRepository, times(1)).deleteUser(anyInt());

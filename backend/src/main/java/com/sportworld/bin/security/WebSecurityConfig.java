@@ -1,4 +1,4 @@
-package com.sportworld.bin.security.security;
+package com.sportworld.bin.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

@@ -26,7 +26,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 
-public class CommentControllerTests {
+class CommentControllerTests {
     private CommentController commentController;
     private CommentService commentService;
     private UserService userService;
@@ -50,7 +50,7 @@ public class CommentControllerTests {
     }
 
     @Test
-    public void createCommentTest() {
+    void createCommentTest() {
         when(commentRepository.createComment(anyString(), anyInt(), anyInt())).thenReturn(commentTemplate);
         CommentInput commentInput = new CommentInput("cont", 1);
 
@@ -60,7 +60,7 @@ public class CommentControllerTests {
     }
 
     @Test
-    public void listCommentsTest() {
+    void listCommentsTest() {
         List<CommentDAO> comments = new ArrayList<>();
         comments.add(commentTemplate);
         when(commentRepository.listComments(anyInt(), anyInt())).thenReturn(comments);
@@ -71,13 +71,13 @@ public class CommentControllerTests {
 
         assertEquals(comments.size(), response.size());
         for (int i = 0; i < comments.size(); i++) {
-            assertEquals(comments.get(i).id(), response.get(i).id);
-            assertEquals((comments.get(i).content()), response.get(i).content);
+            assertEquals(comments.get(i).id(), response.get(i).getId());
+            assertEquals((comments.get(i).content()), response.get(i).getContent());
         }
     }
 
     @Test
-    public void listCommentsByMatchTest() {
+    void listCommentsByMatchTest() {
         List<CommentDAO> comments = new ArrayList<>();
         comments.add(commentTemplate);
         when(commentRepository.listCommentsByMatch(anyInt())).thenReturn(comments);
@@ -88,13 +88,13 @@ public class CommentControllerTests {
 
         assertEquals(comments.size(), response.size());
         for (int i = 0; i < comments.size(); i++) {
-            assertEquals(comments.get(i).id(), response.get(i).id);
-            assertEquals((comments.get(i).content()), response.get(i).content);
+            assertEquals(comments.get(i).id(), response.get(i).getId());
+            assertEquals((comments.get(i).content()), response.get(i).getContent());
         }
     }
 
     @Test
-    public void getCommentTest () {
+    void getCommentTest () {
         when(commentRepository.getComment(anyInt())).thenReturn(commentTemplate);
 
         ResponseEntity<?> response = commentController.getComment(1);
@@ -103,7 +103,7 @@ public class CommentControllerTests {
     }
 
     @Test
-    public void deleteCommentTest() {
+    void deleteCommentTest() {
         when(commentRepository.getComment(anyInt())).thenReturn(commentTemplate);
 
         commentController.deleteComment(1);

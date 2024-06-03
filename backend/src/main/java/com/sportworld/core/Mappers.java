@@ -4,6 +4,9 @@ import com.sportworld.core.models.*;
 import com.sportworld.repositories.models.*;
 
 public class Mappers {
+    private Mappers() {
+    }
+
     public static User fromUserDAO(UserDAO user) {
         return new User(
                 user.id(), user.username(), user.passwordHash(),

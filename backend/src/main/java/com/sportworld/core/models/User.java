@@ -3,19 +3,19 @@ package com.sportworld.core.models;
 import java.sql.Timestamp;
 
 public class User {
-    public int id;
-    public String username;
-    public String passwordHash;
-    public String email;
-    public String phoneNumber;
-    public Timestamp registrationDate;
-    public String salt;
-    public Integer role_id;
+    private int id;
+    private String username;
+    private String passwordHash;
+    private String email;
+    private String phoneNumber;
+    private Timestamp registrationDate;
+    private String salt;
+    private Integer roleId;
 
     public User() {
     }
 
-    public User(int id, String username, String passwordHash, String email, String phoneNumber, Timestamp registrationDate, String salt, Integer role_id) {
+    public User(int id, String username, String passwordHash, String email, String phoneNumber, Timestamp registrationDate, String salt, Integer roleId) {
         this.id = id;
         this.username = username;
         this.passwordHash = passwordHash;
@@ -23,20 +23,38 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.registrationDate = registrationDate;
         this.salt = salt;
-        this.role_id = role_id;
+        this.roleId = roleId;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", passwordHash='" + passwordHash + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", registrationDate=" + registrationDate +
-                ", salt='" + salt + '\'' +
-                ", role_id=" + role_id +
-                '}';
+    public int getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Timestamp getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
     }
 }

@@ -19,6 +19,8 @@ public class MailController {
     private final UserService userService;
     private final MailTokenService mailTokenService;
 
+    private final Random random = new Random();
+
     public MailController(EmailsGateway emailsGateway, UserService userService, MailTokenService mailTokenService) {
         this.emailsGateway = emailsGateway;
         this.userService = userService;
@@ -28,14 +30,13 @@ public class MailController {
     @PostMapping(value = "/forgotPassword")
     public void getForgotPasswordUsername(@RequestParam String username) {
         User user = userService.getUserByUsername(username);
-        Random num = new Random();
 
-        String token = String.valueOf(num.nextInt((20000 - 10000) + 1) + 10000);
-        mailTokenService.createToken(token, user.id);
+        String token = String.valueOf(random.nextInt((20000 - 10000) + 1) + 10000);
+        mailTokenService.createToken(token, user.getId());
         emailsGateway.sendMail("Sport-world: Password reset", String.format("""
                 Please get this code:\s
                 %s
-                Paste it in site form to verify.""", token), user.email);
+                Paste it in site form to verify.""", token), user.getEmail());
 
     }
 
@@ -43,9 +44,9 @@ public class MailController {
     public ResponseEntity<?> verifyCode(@RequestParam String token, @RequestParam String newPassword) {
         try {
             MailToken mailToken = mailTokenService.getToken(token);
-            User user = userService.getUserByID(mailToken.userID);
-            userService.changePassword(user.username, newPassword);
-            mailTokenService.deleteToken(mailToken.userID);
+            User user = userService.getUserByID(mailToken.userID());
+            userService.changePassword(user.getUsername(), newPassword);
+            mailTokenService.deleteToken(mailToken.userID());
             return ResponseEntity.ok().build();
         } catch (EmptyResultDataAccessException e) {
             return ResponseEntity.badRequest().build();

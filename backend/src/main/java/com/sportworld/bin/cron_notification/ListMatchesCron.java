@@ -32,7 +32,7 @@ public class ListMatchesCron {
         StringBuilder msg = new StringBuilder("Here are matches for today: \n");
 
         for (Match match : matches) {
-            msg.append(String.format("\t%s : %s\n", match.league.name, match.title));
+            msg.append(String.format("\t%s : %s\n", match.league().name(), match.title()));
         }
 
         return msg.toString();

@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-public class LeagueControllerTest {
+class LeagueControllerTest {
     private LeagueRepository leagueRepository;
     private LeagueService leagueService;
     private LeagueController leagueController;
@@ -33,7 +33,7 @@ public class LeagueControllerTest {
     }
 
     @Test
-    public void createLeagueTest() {
+    void createLeagueTest() {
         when(leagueRepository.createLeague(anyString())).thenReturn(leagueTemplate);
         LeagueInput leagueInput = new LeagueInput("league");
 
@@ -43,7 +43,7 @@ public class LeagueControllerTest {
     }
 
     @Test
-    public void getLeagueTest () {
+    void getLeagueTest () {
         when(leagueRepository.getLeague(anyInt())).thenReturn(leagueTemplate);
 
         ResponseEntity<?> response = leagueController.getLeague(1);
@@ -52,7 +52,7 @@ public class LeagueControllerTest {
     }
 
     @Test
-    public void listLeaguesTest() {
+    void listLeaguesTest() {
         List<LeagueDAO> leagues = new ArrayList<>();
         leagues.add(leagueTemplate);
         when(leagueRepository.listLeagues(anyInt(), anyInt())).thenReturn(leagues);
@@ -63,13 +63,13 @@ public class LeagueControllerTest {
 
         assertEquals(leagues.size(), response.size());
         for (int i = 0; i < leagues.size(); i++) {
-            assertEquals(leagues.get(i).id(), response.get(i).id);
-            assertEquals((leagues.get(i).name()), response.get(i).name);
+            assertEquals(leagues.get(i).id(), response.get(i).id());
+            assertEquals((leagues.get(i).name()), response.get(i).name());
         }
     }
 
     @Test
-    public void deleteCommentTest() {
+    void deleteCommentTest() {
 
         leagueController.deleteLeague(1);
 

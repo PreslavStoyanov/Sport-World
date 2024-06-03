@@ -24,20 +24,14 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class MatchControllerTests {
+class MatchControllerTests {
     private MatchController matchController;
     private MatchService matchService;
     private UserService userService;
     private MatchRepository matchRepository;
     private UserRepository userRepository;
-    private static final String mockFailToken = "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViI" +
-            "joiUHJlc2xhdiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6MSwidXNlcm5hbWUiOiJ1c2V" +
-            "yIiwicm9sZV9pZCI6MSwiaWF0IjoxNjU1NDcyMjkxLCJleHAiOjE2NTU1MzIyOTF9.PGuBzVg43t6sFFXv" +
-            "fU4_blDxVlZOsN2XIog-E5G5vM125lH-kSIse3bjB5bJxWI-7cX_vQpSaUoEAzcUzFhXrw";
-    private static final String mockSuccessToken = "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiw" +
-            "ic3ViIjoiUHJlc2xhdiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6MSwidXNlcm5hbWU" +
-            "iOiJQcmVzbGF2Iiwicm9sZV9pZCI6MiwiaWF0IjoxNjU1NjI2MjEwLCJleHAiOjE2NTU2ODYyMTB9.v0" +
-            "CmSwpHCxJurXjYJTy6VNG7FeXLN4yfvczkZ2Ox-QLZE99U5Je9s5ruzZqYWtf7oY1-9NcfQApfJdggIw7Vhg";
+    private static final String mockFailToken = "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiUHJlc2xhdiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyIiwicm9sZUlkIjoxLCJpYXQiOjE2NTU0NzIyOTEsImV4cCI6MTY1NTUzMjI5MX0.7mIC5PZG0OKSTeK0UruIcPPPyPSnVDCkX06HVxkAwBZQ4dyYR_jSDpFnt5rBdtnpOxx8Nxd_bYI3SKmjRKP9zw";
+    private static final String mockSuccessToken = "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiUHJlc2xhdiIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpZCI6MSwidXNlcm5hbWUiOiJQcmVzbGF2Iiwicm9sZUlkIjoyLCJpYXQiOjE2NTU2MjYyMTAsImV4cCI6MTY1NTY4NjIxMH0.8lA27bSoOZwRRK3FwSstk0dhj83E3vD81WjB7xvytcqEJoxewDV86aIX_KwL6I0OYtZ5KSMkQkVHu8zrm7hwkg";
     private final MatchDAO template = new MatchDAO(1, "title", "content",
             null, new LeagueDAO(1, "league"), 1);
 
@@ -51,7 +45,7 @@ public class MatchControllerTests {
     }
 
     @Test
-    public void createMatchTestSuccess () {
+    void createMatchTestSuccess () {
         when(matchRepository.createMatch(anyString(), anyString(), anyInt(), anyInt())).thenReturn(template);
         MatchInput matchInput = new MatchInput("title", "content", 1);
 
@@ -61,7 +55,7 @@ public class MatchControllerTests {
     }
 
     @Test
-    public void createMatchTestFail () {
+    void createMatchTestFail () {
         when(matchRepository.createMatch(anyString(), anyString(), anyInt(), anyInt())).thenReturn(template);
         MatchInput matchInput = new MatchInput("title", "content", 1);
 
@@ -71,7 +65,7 @@ public class MatchControllerTests {
     }
 
     @Test
-    public void getMatchTest () {
+    void getMatchTest () {
         when(matchRepository.getMatch(anyInt())).thenReturn(template);
 
         ResponseEntity<?> response = matchController.getMatch(1);
@@ -80,7 +74,7 @@ public class MatchControllerTests {
     }
 
     @Test
-    public void listMatchesTest() {
+    void listMatchesTest() {
         List<MatchDAO> matches = new ArrayList<>();
         matches.add(template);
         when(matchRepository.listMatches(anyInt(), anyInt())).thenReturn(matches);
@@ -91,14 +85,14 @@ public class MatchControllerTests {
 
         assertEquals(matches.size(), response.size());
         for (int i = 0; i < matches.size(); i++) {
-            assertEquals(matches.get(i).id(), response.get(i).id);
-            assertEquals((matches.get(i).title()), response.get(i).title);
-            assertEquals((matches.get(i).content()), response.get(i).content);
+            assertEquals(matches.get(i).id(), response.get(i).id());
+            assertEquals((matches.get(i).title()), response.get(i).title());
+            assertEquals((matches.get(i).content()), response.get(i).content());
         }
     }
 
     @Test
-    public void deleteMatchTest() {
+    void deleteMatchTest() {
         matchController.deleteMatch(1);
 
         verify(matchRepository, times(1)).deleteMatch(anyInt());
