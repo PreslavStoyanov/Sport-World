@@ -63,8 +63,8 @@ public class LeagueControllerTest {
 
         assertEquals(leagues.size(), response.size());
         for (int i = 0; i < leagues.size(); i++) {
-            assertEquals(leagues.get(i).id, response.get(i).id);
-            assertEquals((leagues.get(i).name), response.get(i).name);
+            assertEquals(leagues.get(i).id(), response.get(i).id);
+            assertEquals((leagues.get(i).name()), response.get(i).name);
         }
     }
 

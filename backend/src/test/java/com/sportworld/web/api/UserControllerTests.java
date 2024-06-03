@@ -43,9 +43,9 @@ public class UserControllerTests {
         User tokenInfo = userService.getUserInfoByToken(token);
         when(userRepository.getUserByID(anyInt())).thenReturn(template);
 
-        assertEquals(template.id, Objects.requireNonNull(tokenInfo).id);
-        assertEquals(template.username, tokenInfo.username);
-        assertEquals(template.role_id, tokenInfo.role_id);
+        assertEquals(template.id(), Objects.requireNonNull(tokenInfo).id);
+        assertEquals(template.username(), tokenInfo.username);
+        assertEquals(template.roleId(), tokenInfo.role_id);
 
         ResponseEntity<?> response = userController.getUser(token);
 
@@ -64,8 +64,8 @@ public class UserControllerTests {
 
         assertEquals(users.size(), response.size());
         for (int i = 0; i < users.size(); i++) {
-            assertEquals(users.get(i).id, response.get(i).id);
-            assertEquals((users.get(i).username), response.get(i).username);
+            assertEquals(users.get(i).id(), response.get(i).id);
+            assertEquals((users.get(i).username()), response.get(i).username);
         }
     }
 

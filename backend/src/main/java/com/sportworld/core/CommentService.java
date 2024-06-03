@@ -33,7 +33,7 @@ public class CommentService {
                 .map(Mappers::fromCommentDAO)
                 .collect(Collectors.toList());
         list.forEach(comment -> {
-            comment.author = userRepository.getUserByID(comment.userID).username;
+            comment.author = userRepository.getUserByID(comment.userID).username();
         });
         return list;
     }

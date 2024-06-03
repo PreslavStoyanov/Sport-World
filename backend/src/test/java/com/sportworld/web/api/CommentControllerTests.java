@@ -71,8 +71,8 @@ public class CommentControllerTests {
 
         assertEquals(comments.size(), response.size());
         for (int i = 0; i < comments.size(); i++) {
-            assertEquals(comments.get(i).id, response.get(i).id);
-            assertEquals((comments.get(i).content), response.get(i).content);
+            assertEquals(comments.get(i).id(), response.get(i).id);
+            assertEquals((comments.get(i).content()), response.get(i).content);
         }
     }
 
@@ -88,8 +88,8 @@ public class CommentControllerTests {
 
         assertEquals(comments.size(), response.size());
         for (int i = 0; i < comments.size(); i++) {
-            assertEquals(comments.get(i).id, response.get(i).id);
-            assertEquals((comments.get(i).content), response.get(i).content);
+            assertEquals(comments.get(i).id(), response.get(i).id);
+            assertEquals((comments.get(i).content()), response.get(i).content);
         }
     }
 

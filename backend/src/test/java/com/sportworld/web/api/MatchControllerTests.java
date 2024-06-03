@@ -91,9 +91,9 @@ public class MatchControllerTests {
 
         assertEquals(matches.size(), response.size());
         for (int i = 0; i < matches.size(); i++) {
-            assertEquals(matches.get(i).id, response.get(i).id);
-            assertEquals((matches.get(i).title), response.get(i).title);
-            assertEquals((matches.get(i).content), response.get(i).content);
+            assertEquals(matches.get(i).id(), response.get(i).id);
+            assertEquals((matches.get(i).title()), response.get(i).title);
+            assertEquals((matches.get(i).content()), response.get(i).content);
         }
     }
 
