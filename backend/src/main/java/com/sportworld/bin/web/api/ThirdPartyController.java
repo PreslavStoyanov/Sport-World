@@ -35,7 +35,7 @@ public class ThirdPartyController {
         try {
             return Objects.requireNonNull(client.newCall(request).execute().body()).string();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
     }
 
@@ -56,7 +56,7 @@ public class ThirdPartyController {
         try {
             return Objects.requireNonNull(client.newCall(request).execute().body()).string();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
     }
 }

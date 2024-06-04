@@ -82,6 +82,9 @@ public class MySQLMailTokenRepository implements MailTokenRepository {
     }
 
     static class Queries {
+        private Queries() {
+        }
+
         public static final String INSERT_TOKEN = "INSERT INTO mail_tokens (token, user_id) VALUES (?, ?)";
 
         public static final String GET_TOKEN_BY_USER_ID = "SELECT id, token, user_id FROM mail_tokens WHERE user_id = ?";

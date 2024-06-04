@@ -68,7 +68,7 @@ public class UserService {
         try {
             digest = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
         byte[] hash = digest.digest(originalString.getBytes(StandardCharsets.UTF_8));
 

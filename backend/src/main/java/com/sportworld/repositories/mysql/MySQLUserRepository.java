@@ -109,6 +109,9 @@ public class MySQLUserRepository implements UserRepository {
     }
 
     static class Queries {
+        private Queries() {
+        }
+
         public static final String UPDATE_PASSWORD_AND_SALT = "UPDATE users SET password_hash = ?, salt = ? WHERE username = ?";
 
         public static final String INSERT_USER = "INSERT INTO users (username, password_Hash, email, salt) VALUES (?, ?, ?, ?)";

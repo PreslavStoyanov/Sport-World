@@ -1,6 +1,9 @@
 package com.sportworld.gateways;
 
-import org.apache.http.*;
+import org.apache.http.Consts;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.StatusLine;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
@@ -33,7 +36,7 @@ public class EmailsGateway {
             form.add(new BasicNameValuePair("text", body));
             postMessage(String.format("https://api.mailgun.net/v3/%s/messages", DOMAIN), form);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException();
         }
     }
 
@@ -52,12 +55,8 @@ public class EmailsGateway {
             stringBuilder.append(getBody(response.getEntity().getContent()));
             StatusLine statusLine = response.getStatusLine();
             int statusCode = statusLine.getStatusCode();
-            if (statusCode == 200) {
-                System.out.println("post mailgun messages ok:" + url);
-            } else {
-                System.out.println("Failed to post mailgun,status=" + statusCode);
-                throw new RuntimeException("post failed:" + url);
-            }
+            if (statusCode != 200)
+                throw new IllegalArgumentException(String.format("Failed to post with mailgun, status: %s, url: %s", statusCode, url));
         } finally {
             if (response != null && response.getEntity() != null) {
                 response.getEntity().consumeContent();
@@ -78,7 +77,7 @@ public class EmailsGateway {
             }
             in.close();
         } catch (IOException ioe) {
-            throw new RuntimeException(ioe);
+            throw new IllegalArgumentException(ioe);
         }
         return result.toString();
     }

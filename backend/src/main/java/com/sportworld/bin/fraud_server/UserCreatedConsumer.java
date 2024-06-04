@@ -4,17 +4,21 @@ import com.sportworld.lib.events.UserCreatedEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import java.util.logging.Logger;
+
 @Component
 public class UserCreatedConsumer {
+    private final Logger logger = Logger.getLogger(UserCreatedConsumer.class.getName());
+
     @KafkaListener(
             topics = "com.sportworld.createuser",
             groupId = "groupId",
             containerFactory = "userCreatedContainerFactory"
     )
     void listener(UserCreatedEvent data) {
-        System.out.println("Listener received: " + data + " ");
+        logger.info(String.format("Listener received: %s", data));
         if (data.user.getUsername().equals("manolchoo")) {
-            System.out.println("Something is fishy... This guy is called Manol, but no one is called like that anymore!");
+            logger.warning("Something is fishy... This guy is called Manol, but no one is called like that anymore!");
         }
     }
 }

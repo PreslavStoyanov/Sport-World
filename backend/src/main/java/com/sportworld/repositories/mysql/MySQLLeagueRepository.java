@@ -78,6 +78,9 @@ public class MySQLLeagueRepository implements LeagueRepository {
     }
 
     static class Queries {
+        private Queries() {
+        }
+
         public static final String INSERT_LEAGUE = "INSERT INTO leagues (name) VALUES (?)";
 
         public static final String LIST_LEAGUES = "SELECT * FROM leagues LIMIT ?, ?";

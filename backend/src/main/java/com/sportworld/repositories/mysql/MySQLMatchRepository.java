@@ -88,6 +88,9 @@ public class MySQLMatchRepository implements MatchRepository {
     }
 
     static class Queries {
+        private Queries() {
+        }
+
         public static final String INSERT_MATCH = "INSERT INTO matches (title, content, league_id, user_id) VALUES (?, ?, ?, ?)";
 
         public static final String GET_MATCH = """

@@ -11,13 +11,13 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 @Configuration
 public class GatewayBeans {
-    @Value("com.sportworld.createuser")
+    @Value("${com.sportworld.createuser}")
     private String userCreatedTopic;
 
-    @Value("com.sportworld.user-notification-email")
+    @Value("${com.sportworld.user-notification-email}")
     private String userNotificationEmailJobTopic;
 
-    @Value("4")
+    @Value("${4}")
     private Integer userNotificationEmailJobPartitionsCnt;
 
     @Bean

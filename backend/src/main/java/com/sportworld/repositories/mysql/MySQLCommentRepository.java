@@ -87,6 +87,8 @@ public class MySQLCommentRepository implements CommentRepository {
     }
 
     static class Queries {
+        private Queries() {
+        }
 
         public static final String INSERT_COMMENT = "INSERT INTO comments(content, user_id, match_id) VALUES (?, ?, ?)";
 
