@@ -34,7 +34,7 @@ public class LoginController {
     @PostMapping(value = "/register")
     public User createUser(@RequestBody UserInput user) {
         User u = userService.createUser(
-                user.username, user.password, user.email);
+                user.username(), user.password(), user.email());
         kafkaGateway.sendUserCreatedEvent(new UserCreatedEvent(u, LocalDateTime.now()));
 
         return u;
@@ -42,14 +42,14 @@ public class LoginController {
 
     @PostMapping("/login")
     public LoginInput login(@RequestBody UserInput user) {
-        int userID = userService.getUserByUsername(user.username).getId();
-        int roleID = userService.getUserByUsername(user.username).getRoleId();
+        int userID = userService.getUserByUsername(user.username()).getId();
+        int roleID = userService.getUserByUsername(user.username()).getRoleId();
         try {
-            userService.authorizeUser(userID, user.password);
+            userService.authorizeUser(userID, user.password());
         } catch (InvalidUserParameterException e) {
             throw new IllegalArgumentException();
         }
-        String token = getJWTToken(user.username, userID, roleID);
+        String token = getJWTToken(user.username(), userID, roleID);
         return new LoginInput(String.valueOf(userID), token);
     }
 

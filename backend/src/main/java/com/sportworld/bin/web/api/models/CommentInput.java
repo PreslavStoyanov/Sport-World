@@ -1,11 +1,4 @@
 package com.sportworld.bin.web.api.models;
 
-public class CommentInput {
-    public String content;
-    public int matchID;
-
-    public CommentInput(String content, int matchID) {
-        this.content = content;
-        this.matchID = matchID;
-    }
+public record CommentInput(String content, int matchID) {
 }

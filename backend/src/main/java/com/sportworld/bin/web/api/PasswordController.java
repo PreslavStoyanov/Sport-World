@@ -19,10 +19,10 @@ public class PasswordController {
     @PostMapping(value = "/changePassword")
     public void changePassword(@RequestBody ChangePasswordInput input) {
         try {
-            userService.authorizeUser(userService.getUserByUsername(input.username).getId(), input.oldPassword);
+            userService.authorizeUser(userService.getUserByUsername(input.username()).getId(), input.oldPassword());
         } catch (InvalidUserParameterException e) {
             throw new InvalidUserParameterException();
         }
-        userService.changePassword(input.username, input.newPassword);
+        userService.changePassword(input.username(), input.newPassword());
     }
 }
